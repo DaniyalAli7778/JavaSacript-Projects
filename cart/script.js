@@ -55,7 +55,15 @@ function showpopulerProducts(){
                 </div> `
   });
   document.querySelector('.populars').innerHTML=cullter;
+};
+let cart=[];
+function addCart(){
+  let addcart = document.querySelector('.products');
+  addcart.addEventListener('click',function(){
+    alert("Add to Cart");
+    
+  })
 }
-
 showTheProducts();
 showpopulerProducts();
+addCart();
