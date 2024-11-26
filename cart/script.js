@@ -18,6 +18,7 @@ function showTheProducts(){
                 <img src="${product.image}" height="${product.height}" alt=""/ >
                 
                 </div>
+                
                 <hr/>
                 <div class="data w-full px-2 py-5">
                     <h1 class="font-semibold text-xl leading-none tracking-tight">${product.name}</h1>
