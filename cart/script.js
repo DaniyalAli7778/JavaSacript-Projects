@@ -21,7 +21,7 @@ function showTheProducts(){
                 
                 <hr/>
                 <div class="data w-full px-2 py-5">
-                    <h1 class="font-semibold text-xl leading-none tracking-tight">${product.name}</h1>
+                    <h1 class="font-semibold text-xl leading-none  tracking-tight">${product.name}</h1>
                     <div class="flex justify-between w-full items-center mt-2">
                         <div class="w-1/2">
                             <h3 class="font-semibold opacity-20"> ${product.headline}.</h3>
@@ -57,6 +57,8 @@ function showpopulerProducts(){
   });
   document.querySelector('.populars').innerHTML=cullter;
 };
+
+
 let cart=[];
 function addCart(){
   let addcart = document.querySelector('.products');
