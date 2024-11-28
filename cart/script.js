@@ -12,7 +12,7 @@ let populer = [
   ]
 function showTheProducts(){
   var cullter="";
-  let addProducts = products.forEach(function(product){
+  let addProducts = products.forEach(function(product,index){
      cullter+= ` <div class="product w-fit rounded-xl p-2 bg-white">
                 <div class="image w-[14rem] h-[13rem] bg-zinc-200 rounded-md">
                 <img src="${product.image}" height="${product.height}" alt=""/ >
@@ -27,8 +27,8 @@ function showTheProducts(){
                             <h3 class="font-semibold opacity-20"> ${product.headline}.</h3>
                             <h4 class="font-semibold mt-2">&#8377;${product.price}</h4>
                         </div>
-                        <button class="w-10 h-10 rounded-full shader text-yellow-400"><i
-                                class="ri-add-line"></i></button>
+                        <button  data-index="${index}" class="   additem w-10 h-10 rounded-full shader text-yellow-400"><i
+                             data-index="${index}"   class=" additem ri-add-line"></i></button>
                     </div>
                 </div>  
               </div> `
@@ -43,7 +43,7 @@ function showpopulerProducts(){
   var cullter ="";
   let populerProducts= populer.forEach((popularProduct)=>{
      cullter+= `<div class="popular bg-white p-2 rounded-2xl flex items-start gap-3 w-[60%] flex-shrink-0">
-                    <div class="w-20 h-20 bg-red-500 flex-shrink-0 rounded-2xl border-4 border-white overflow-hidden">
+                    <div class="w-20 h-20 bg-red-500 flex-shrink-0 rounded-2xl border-4 border-white  overflow-hidden">
                         <img class="w-full h-full object-cover"
                             src="${popularProduct.image}"
                             alt=""/>
@@ -59,11 +59,20 @@ function showpopulerProducts(){
 };
 
 
+let cartProducts=[];
 let cart=[];
 function addCart(){
   let addcart = document.querySelector('.products');
-  addcart.addEventListener('click',function(){
-    alert("Add to Cart");
+  addcart.addEventListener('click',function(e){
+  if(e.target.classList.contains('additem')){
+ 
+cart.push(products[e.target.dataset.index])
+    console.log(cart);
+    
+  };
+
+  
+;    
     
   })
 }

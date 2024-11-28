@@ -8,6 +8,8 @@
 
 .populars::-webkit-scrollbar{
    display: none; 
+ 
+   overflow:scrollbar
 }
 
 .shader{
