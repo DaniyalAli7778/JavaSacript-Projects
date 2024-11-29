@@ -18,7 +18,7 @@ let products = [
     errorStatment: "Picture of White Soft Chair",
   },
   {
-    name: "3",
+    name: "Balck Chair",
     image:
       "https://images.unsplash.com/photo-1489269637500-aa0e75768394?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNoYWlyfGVufDB8fDB8fHww ",
     headline: "Try the Newdesinge Chair",
@@ -112,7 +112,7 @@ function addCart() {
       let Cullter = "";
 
 cart.forEach((prod, index) => {
-  Cullter += ` <div class="flex gap-2 bg-white p-2 rounded-lg"  > 
+  Cullter += ` <div data-index="${index}" class=" cartitem flex  justify-between items-center gap-2 bg-white p-2 rounded-lg"  > 
                   <div class="w-10 h-10 flex-shrink-0  rounded-lg  overflow-hidden">
                       <img  class="w-full h-full object-cover" src="${prod.image}"/>
                   </div>
@@ -120,7 +120,9 @@ cart.forEach((prod, index) => {
                      <h3 class=""font-semibold>${prod.name} </h3>
                       <h5 class=""text-sm font-semibold opacity-80>${prod.price} </h5>
                   </div>
-     
+                        <div class=" m-100">
+                        <button class="cartremove bg-black text-white radius-50 text-md h-5 w-10 pb-5" >-</button>
+                        </div>
                 </div> `;
 });
 document.querySelector('.cartexpnd')
@@ -128,6 +130,8 @@ document.querySelector('.cartexpnd')
       console.log(cart);
     }
   });
+
+
 }
 
 function showCart() {
@@ -139,7 +143,6 @@ function showCart() {
 
   });
 
-
    let hidecart=document.querySelector(".carticon");
    hidecart.addEventListener("dblclick", function () {
     let hideCart = document.querySelector(".cartexpnd");
@@ -147,10 +150,22 @@ function showCart() {
    
     alert("Are you Sure to Close Cart") 
   });
+};
+function removeCart(){
+  const removecartItem= document.querySelector('.cartexpnd');
+  removecartItem.addEventListener('click',function(e){
+    if(e.target.classList.contains('cartremove')){
+ let removeitem= e.target.parentNode.parentNode;
+ removeitem.remove(removeitem)
+     console.log("hellow");
+     
+ 
+    }  
+  });
 }
-
 
 showCart();
 showTheProducts();
 showpopulerProducts();
 addCart();
+removeCart();
