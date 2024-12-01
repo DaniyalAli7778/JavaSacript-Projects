@@ -112,6 +112,7 @@ background-color: blur;
 
   #Player h3:active{
     scale: 0.88;
+    background:  red;
   }
 @media (max-width: 722px) {
   #main {
