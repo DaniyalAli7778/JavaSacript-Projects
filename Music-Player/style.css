@@ -14,7 +14,7 @@ body {
   border-bottom: 1px solid #5a5a5a;
 }
 #main {
-  height:85vh;
+ height: 85vh;
   width: 100%;
   background: #131313;
   padding: 10vh 5vh;
@@ -22,19 +22,14 @@ body {
 }
 
 .left {
-  height: 80%;
+  height: 100%;
   width: 50%;
-  background: rgb(79, 79, 79);
+
   margin-right: 20px;
-  border: none;
-  outline: none;
+ background-position: center;
 }
 
-.left img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+ 
 
 .right {
   height: 80%;
@@ -71,11 +66,13 @@ body {
   display: flex;
   
    align-items:center  ;
+   pointer-events: none;
 }
 .song-card .card-part-1 img {
   height: 100%;
   width: 100px;
-   
+  object-fit:  cover;
+   object-position: top;
  
   margin-right:1.5rem;
 }
@@ -109,11 +106,13 @@ background-color: blur;
  align-items: center;
  font-weight: 700;
   }
+ 
 
   #Player h3:active{
     scale: 0.88;
     background:  red;
   }
+
 @media (max-width: 722px) {
   #main {
     height: 85vh;
