@@ -18,7 +18,6 @@ function showSongs() {
             <div class="card-part-1">
               <img
                 src="${song.image}"
-                alt=""
                 srcset=""
               />
               <h4> ${song.name}</h4>
@@ -34,6 +33,7 @@ function showSongs() {
   audio.src = songs[selectedSong].url
   poster.style.backgroundImage = `url('${songs[selectedSong].image}') `;
   poster.style.backgroundSize = "cover";
+   
 
 };
 

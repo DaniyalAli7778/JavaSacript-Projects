@@ -156,7 +156,7 @@ function removeCart(){
   removecartItem.addEventListener('click',function(e){
     if(e.target.classList.contains('cartremove')){
  let removeitem= e.target.parentNode.parentNode;
- removeitem.remove(removeitem)
+ removeitem.delete(removeitem)
      console.log("hellow");
      
  
