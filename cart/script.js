@@ -134,37 +134,69 @@ document.querySelector('.cartexpnd')
 
 }
 
+
 function showCart() {
   const carticon = document.querySelector(".carticon");
   carticon.addEventListener("click", function () {
     document.querySelector(".cartexpnd").style.display = "block";
-
-
-
+       const cartIcon= document.querySelector(".carticon")
+       cartIcon.style.display="none";
+        const closeCartIcon= document.querySelector(".ri-close-line ")
+        closeCartIcon.style.display="inline-block"
   });
+    
 
-   let hidecart=document.querySelector(".carticon");
-   hidecart.addEventListener("dblclick", function () {
-    let hideCart = document.querySelector(".cartexpnd");
-    hideCart.style.display = "";
-   
-    alert("Are you Sure to Close Cart") 
-  });
+     
 };
+
+function hideCart(){
+  const closeCartIcon= document.querySelector(".ri-close-line ")
+    closeCartIcon.addEventListener('click',function(){
+       document.querySelector(".cartexpnd").style.display = "none";
+      
+        const closeCartIcon= document.querySelector(".ri-close-line ")
+        closeCartIcon.style.display="none";
+        const cartIcon= document.querySelector(".carticon")
+        cartIcon.style.display="block";
+
+    })
+}
+ 
+
 function removeCart(){
-  const removecartItem= document.querySelector('.cartexpnd');
+  const removecartItem = document.querySelector('.cartexpnd');
   removecartItem.addEventListener('click',function(e){
     if(e.target.classList.contains('cartremove')){
+<<<<<<< HEAD
  let removeitem= e.target.parentNode.parentNode;
  removeitem.delete(removeitem)
      console.log("hellow");
      
  
+=======
+        const removecartitem= e.target.parentNode.parentNode;
+        removecartitem.remove(removecartitem);
+      const index = e.target.closest('.cartitem').dataset.index;
+      cart.splice(index,1)
+      if(cart.length == 0){
+       const emptyCart= document.querySelector(".cartexpnd")
+       emptyCart.innerHTML = "Your Cart is Empty";
+       emptyCart.style.textAlign="center";
+       emptyCart.style.paddingTop="20px";
+
+
+      }
+  console.log(cart);
+  
+>>>>>>> origin/main
     }  
+    
   });
 }
 
+ 
 showCart();
+hideCart();
 showTheProducts();
 showpopulerProducts();
 addCart();
