@@ -167,14 +167,7 @@ function removeCart(){
   const removecartItem = document.querySelector('.cartexpnd');
   removecartItem.addEventListener('click',function(e){
     if(e.target.classList.contains('cartremove')){
- 
- let removeitem= e.target.parentNode.parentNode;
- removeitem.delete(removeitem)
-     console.log("hellow");
-     
- 
   
-
         const removecartitem= e.target.parentNode.parentNode;
         removecartitem.remove(removecartitem);
       const index = e.target.closest('.cartitem').dataset.index;
