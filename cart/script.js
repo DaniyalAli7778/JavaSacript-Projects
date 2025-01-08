@@ -174,6 +174,7 @@ function removeCart(){
      
  
 =======
+
         const removecartitem= e.target.parentNode.parentNode;
         removecartitem.remove(removecartitem);
       const index = e.target.closest('.cartitem').dataset.index;
