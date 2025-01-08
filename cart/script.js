@@ -167,13 +167,13 @@ function removeCart(){
   const removecartItem = document.querySelector('.cartexpnd');
   removecartItem.addEventListener('click',function(e){
     if(e.target.classList.contains('cartremove')){
-<<<<<<< HEAD
+ 
  let removeitem= e.target.parentNode.parentNode;
  removeitem.delete(removeitem)
      console.log("hellow");
      
  
-=======
+  
 
         const removecartitem= e.target.parentNode.parentNode;
         removecartitem.remove(removecartitem);
@@ -189,8 +189,7 @@ function removeCart(){
       }
   console.log(cart);
   
->>>>>>> origin/main
-    }  
+     }  
     
   });
 }
