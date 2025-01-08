@@ -3,7 +3,11 @@ let songs = [
   { name: " Darling Jatt Di", url: "./Music/Darling Jatt Di Amrinder Gill 128 Kbps (1).mp3", image: " ./images/ Darling.jpg", duration: "2:56" },
   { name: "Game Changer", url: "./Music/Game Changer Surender Romio 128 Kbps.mp3", image: "./images/ GameChanger.jpg ", duration: "4:08" },
   { name: "Kissik Pushpa 2", url: "./Music/Kissik Pushpa 2 The Rule 128 Kbps.mp3", image: "./images/ Kissik.jpg", duration: "4:08" },
-  { name: "Mahiyaa Sameer", url: "./Music/Mahiyaa Sameer Khan 128 Kbps.mp3 ", image: " ./images/ Mahiya.jpg", duration: "3:41" }
+  { name: "Mahiyaa Sameer", url: "./Music/Mahiyaa Sameer Khan 128 Kbps.mp3 ", image: " ./images/ Mahiya.jpg", duration: "3:41" },
+
+  {
+    name: "Game Changer", url: "https://www.youtube.com/watch?v=a8HeAvHBmzk", image: "./images/ GameChanger.jpg ", duration: "4:08"
+  },{name: "Game Changer", url: "./Music/Game Changer Surender Romio 128 Kbps.mp3", image: "./images/ GameChanger.jpg ", duration: "4:08"},{name: "Game Changer", url: "./Music/Game Changer Surender Romio 128 Kbps.mp3", image: "./images/ GameChanger.jpg ", duration: "4:08"},{name: "Game Changer", url: "./Music/Game Changer Surender Romio 128 Kbps.mp3", image: "./images/ GameChanger.jpg ", duration: "4:08"},{name: "Game Changer", url: "./Music/Game Changer Surender Romio 128 Kbps.mp3", image: "./images/ GameChanger.jpg ", duration: "4:08"},{name: "Game Changer", url: "./Music/Game Changer Surender Romio 128 Kbps.mp3", image: "./images/ GameChanger.jpg ", duration: "4:08"},{name: "Game Changer", url: "./Music/Game Changer Surender Romio 128 Kbps.mp3", image: "./images/ GameChanger.jpg ", duration: "4:08"},{name: "Game Changer", url: "./Music/Game Changer Surender Romio 128 Kbps.mp3", image: "./images/ GameChanger.jpg ", duration: "4:08"}
 ]
 let audio = new Audio();
 const allSongs = document.querySelector('.all-songs');
@@ -22,7 +26,7 @@ function showSongs() {
               />
               <h4> ${song.name}</h4>
             </div>
-             
+ 
             <h6>${song.duration}</h6>
           </div>`
 
@@ -39,16 +43,20 @@ function showSongs() {
 
 function playMusic() {
   allSongs.addEventListener('click', (e) => {
+    durationOfSong();
     if (e.target.classList.contains('song-card')) {
-      console.log(songs[e.target.id]);
-      selectedSong = e.target.id;
+       selectedSong = e.target.id;
       showSongs();
-      // audio.play();
+      audio.play();
+      if (audio.play) {
+        durationOfSong();
+      }
+      
 
-      document.querySelector('#stop').style.display = "none";
-      document.querySelector('#play').style.display = "inline-block";
-      audio.pause()
-      musicFunctionalty();
+      document.querySelector('#stop').style.display = "inline-block";
+      document.querySelector('#play').style.display = "none";
+      
+
     }
   })
 }
@@ -59,6 +67,11 @@ function musicFunctionalty() {
     document.querySelector('#stop').style.display = "inline-block";
     document.querySelector('#play').style.display = "none";   
     audio.play()
+    if (audio.play) {
+      durationOfSong();
+    }
+    
+
   })
 
   let pause = document.querySelector('#stop').addEventListener('click', function () {
@@ -80,12 +93,16 @@ forward.addEventListener('click',function(){
     document.querySelector('#stop').style.display = "inline-block";
     document.querySelector('#play').style.display = "none";   
    audio.play()
+   if (audio.play) {
+    durationOfSong();
+  }
+  
   }
    
    
 })
 backward.addEventListener('click',function(){
-  if(selectedSong > 0){
+  if(selectedSong >= 0){
     selectedSong--
    
     showSongs()
@@ -93,8 +110,34 @@ backward.addEventListener('click',function(){
    document.querySelector('#stop').style.display = "inline-block";
     document.querySelector('#play').style.display = "none";   
    audio.play()
+   if (audio.play) {
+    durationOfSong();
+  }
+  
   }
  
 })
+  function durationOfSong  (){
+  
+       const intervald=setInterval(()=>{
+        const songDuration=    Math.floor(audio.currentTime/audio.duration *100 )
+         const progress= document.querySelector(".progressBar");
+        progress.style.width= songDuration + "%";
+         if( audio.currentTime >= audio.duration){
+          clearInterval(intervald);
+           
+        }
+       },1000)
+  
+        
+  
+
+ 
+    
+  
+ }
+ 
+ musicFunctionalty();
+
 playMusic();
 showSongs();
